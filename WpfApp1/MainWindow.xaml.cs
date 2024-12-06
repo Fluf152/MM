@@ -33,21 +33,16 @@ namespace WpfApp1
 
         private void FirstButtonClick(object sender, RoutedEventArgs e)
         {
-            var firstPage = new FirstPage();
-            Navigate(firstPage);
+            Navigate(new FirstPage());
         }
 
         private void SecondButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Navigate(new SecondPage());
         }
         private void ThirdButtonClick(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void FourthButtonClick(object sender, RoutedEventArgs e)
-        {
-
+            Navigate(new ThirdPage());
         }
     }
 }

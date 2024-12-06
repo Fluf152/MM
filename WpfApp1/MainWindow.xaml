@@ -14,26 +14,22 @@
         <StackPanel Orientation="Horizontal">
             <Button Height="40"
                     Width="120"
-                    Content="1"
+                    Content="1-2"
                     Margin="5"
                     Click="FirstButtonClick"/>
             <Button Height="40"
                     Width="120"
-                    Content="2"
+                    Content="3"
                     Margin="5"
                     Click="SecondButtonClick"/>
             <Button Height="40"
                     Width="120"
-                    Content="3"
-                    Margin="5"
-                    Click="ThirdButtonClick"/>
-            <Button Height="40"
-                    Width="120"
                     Content="4"
                     Margin="5"
-                    Click="FourthButtonClick "/>
+                    Click="ThirdButtonClick"/>
         </StackPanel>
         <Frame x:Name="MainFrame"
-               Grid.Row="1"/>
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

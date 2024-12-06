@@ -87,31 +87,66 @@ namespace WpfApp1.Pages
         }
         private void SolveButtonClick(object sender, RoutedEventArgs e)
         {
-            MyMath.Matrix result;
+            MyMath.Matrix result = new MyMath.Matrix(1,1);
             var matr1 = GetMatrixFromDataTable(matrix1Data);
-            if (OperationComboBox.SelectedIndex == 0)
+            switch (OperationComboBox.SelectedIndex)
             {
-                var matr2 = GetMatrixFromDataTable(matrix2Data);
-                result = matr1 + matr2;
-            }
-            else
-            {
-                result = matr1 * Convert.ToDouble(OperandTextBox.Text);
+                case 0:
+                    {
+                        var matr2 = GetMatrixFromDataTable(matrix2Data);
+                        result = matr1 + matr2;
+                        break;
+                    }
+                case 1:
+                    {
+                        double val = 0.0;
+                        double.TryParse(OperandTextBox.Text, out val);
+                        result = matr1 * val;
+                        break;
+                    }
+                case 2:
+                    {
+                        result = matr1.Transpose();
+                        break;
+                    }
+                case 3:
+                    {
+                        var matr2 = GetMatrixFromDataTable(matrix2Data);
+                        result = matr1 * matr2;
+                        break;
+                    }
             }
             FillDataTableFromMatrix(result, matrixOutputData);
         }
 
         private void OperationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (OperationComboBox.SelectedIndex == 0)
+            switch (OperationComboBox.SelectedIndex)
             {
-                Matrix2Grid.Visibility = Visibility.Visible;
-                OperandTextBox.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                Matrix2Grid.Visibility = Visibility.Collapsed;
-                OperandTextBox.Visibility = Visibility.Visible;
+                case 0:
+                    {
+                        Matrix2Grid.Visibility = Visibility.Visible;
+                        OperandTextBox.Visibility = Visibility.Collapsed;
+                        break;
+                    }
+                case 1:
+                    {
+                        Matrix2Grid.Visibility = Visibility.Collapsed;
+                        OperandTextBox.Visibility = Visibility.Visible;
+                        break;
+                    }
+                case 2:
+                    {
+                        Matrix2Grid.Visibility = Visibility.Collapsed;
+                        OperandTextBox.Visibility = Visibility.Collapsed;
+                        break;
+                    }
+                case 3:
+                    {
+                        Matrix2Grid.Visibility = Visibility.Visible;
+                        OperandTextBox.Visibility = Visibility.Collapsed;
+                        break;
+                    }
             }
         }
 

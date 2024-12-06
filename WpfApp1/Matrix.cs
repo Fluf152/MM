@@ -129,7 +129,6 @@ namespace MyMath
             return result;
         }
 
-
         public double Determinant()
         {
             if (_rows != _columns)
@@ -173,6 +172,49 @@ namespace MyMath
                 r++;
             }
             return minor.Determinant();
+        }
+
+        public Matrix ToTriangular()
+        {
+            Matrix result = new Matrix(_data);
+
+            for (int i = 0; i < _rows - 1; i++)
+            {
+                for (int k = i + 1; k < _rows; k++)
+                {
+                    if (Math.Abs(result[i, i]) < 1e-10) continue;
+
+                    double factor = result[k, i] / result[i, i];
+                    for (int j = i; j < _columns; j++)
+                    {
+                        result[k, j] -= factor * result[i, j];
+                    }
+                }
+            }
+            return result;
+        }
+
+        public Matrix ToDiagonalGauss()
+        {
+            Matrix result = ToTriangular();
+
+            for (int i = _rows - 1; i > 0; i--)
+            {
+                for (int k = i - 1; k >= 0; k--)
+                {
+                    double factor = result[k, i] / result[i, i];
+                    for (int j = i; j >= 0; j--)
+                    {
+                        result[k, j] -= factor * result[i, j];
+                    }
+                }
+            }
+            return result;
+        }
+
+        public bool IsSquare()
+        {
+            return _rows == _columns;
         }
 
         public override string ToString()

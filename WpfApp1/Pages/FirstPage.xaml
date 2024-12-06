@@ -25,8 +25,10 @@
                       SelectionChanged="OperationComboBox_SelectionChanged"
                       SelectedIndex="0"
                       Height="30">
-                <TextBlock Text="+"/>
-                <TextBlock Text="*"/>
+                <TextBlock Text="Сложить матрици"/>
+                <TextBlock Text="Умножить матрицу на число"/>
+                <TextBlock Text="Транспонировать"/>
+                <TextBlock Text="Умножить матрицу на матрицу"/>
             </ComboBox>
             <Button Content="Заполнить случайно" 
                     Click="RandomFill_Click"
@@ -42,7 +44,8 @@
                   AutoGenerateColumns="True"
                   ColumnWidth="*"
                   CanUserAddRows="False"
-                  Margin="10">
+                  Margin="10"
+                  HeadersVisibility="Row">
             </DataGrid>
         </StackPanel>
         <StackPanel Grid.Column="2" 
@@ -52,7 +55,8 @@
                   AutoGenerateColumns="True"
                   CanUserAddRows="False"
                   ColumnWidth="*"
-                  Margin="10">
+                  Margin="10"
+                  HeadersVisibility="Row">
             </DataGrid>
         </StackPanel>
         <TextBox x:Name="OperandTextBox"
@@ -67,7 +71,8 @@
                   AutoGenerateColumns="True"
                   ColumnWidth="*"
                   CanUserAddRows="False"
-                  Margin="10">
+                  Margin="10"
+                  HeadersVisibility="Row">
             </DataGrid>
         </StackPanel>
     </Grid>

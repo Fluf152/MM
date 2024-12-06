@@ -5,10 +5,69 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="ThirdPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10">
+            <Button Content="Рандомная матрица" 
+                    Click="GenerateMatrix_Click"
+                    Margin="0,5"/>
+            <Button Content="К триуголькой" 
+                    Click="ToTriangular_Click"
+                    Margin="0,5"/>
+            <Button Content="К диогональной" 
+                    Click="ToDiagonal_Click"
+                    Margin="0,5"/>
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Оригинальная матрица:" 
+                          FontWeight="Bold" 
+                          Margin="10,5"/>
+                <DataGrid x:Name="OriginalMatrixGrid" 
+                         Margin="10"
+                         AutoGenerateColumns="True"
+                         CanUserAddRows="False"
+                         HeadersVisibility="Row"
+                          HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Триугольная матрица:" 
+                          FontWeight="Bold" 
+                          Margin="10,5"/>
+                <DataGrid x:Name="TriangularMatrixGrid" 
+                         Margin="10"
+                         AutoGenerateColumns="True"
+                         CanUserAddRows="False"
+                         HeadersVisibility="Row"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Диогональная матрица:" 
+                          FontWeight="Bold" 
+                          Margin="10,5"/>
+                <DataGrid x:Name="DiagonalMatrixGrid" 
+                         Margin="10"
+                         AutoGenerateColumns="True"
+                         CanUserAddRows="False"
+                         HeadersVisibility="Row"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

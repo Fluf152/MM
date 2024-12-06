@@ -8,7 +8,48 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SecondPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Button Content="Рандомная матрица" 
+                    Click="GenerateMatrix_Click"
+                    Margin="5"/>
+            <Button Content="Расщитать определитель" 
+                    Click="CalculateDeterminant_Click"
+                    Margin="5"/>
+            <Button Content="Показать миноры" 
+                    Click="ShowMinors_Click"
+                    Margin="5"/>
+            <Button Content="Расщитать кофакторы" 
+                    Click="CalculateCofactors_Click"
+                    Margin="5"/>
+            <TextBlock Text="Определитель:" Margin="5"/>
+            <TextBlock x:Name="DeterminantText" Margin="5"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1">
+            <DataGrid x:Name="MainMatrixGrid" 
+                  Grid.Column="1"
+                  AutoGenerateColumns="True"
+                  CanUserAddRows="False"
+                  Margin="10"
+                  HeadersVisibility="Row"/>
+        </StackPanel>
+
+        <ItemsControl x:Name="MinorsPanel" 
+                     Grid.Column="2"
+                     Margin="10">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </Page>
